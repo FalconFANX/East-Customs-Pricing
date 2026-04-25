@@ -1,21 +1,6 @@
-module.exports = {
-  "main": "electron/main.js",
-  "build": {
-    "appId": "com.wolfie.east-customs-pricing",
-    "productName": "East Customs Pricing",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/**/*",
-      "electron/**/*"
-    ],
-  "publish": [
-      {
-        "provider": "github",
-        "owner": "FalconFANX",
-        "repo": "East-Customs-Pricing"
-      }
-    ]
-  }
-}
+const { contextBridge, ipcRenderer } = require("electron");
+
+contextBridge.exposeInMainWorld("api", {
+  getJobLogs: () => ipcRenderer.invoke("get-job-logs"),
+  saveJobLogs: (logs) => ipcRenderer.invoke("save-job-logs", logs),
+});
