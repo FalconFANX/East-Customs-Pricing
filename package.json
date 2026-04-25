@@ -36,7 +36,11 @@
 
             }
 
-        ]
+        ],
+
+        "linux": {
+            "target": ["AppImage", "zip"]
+        }
 
     },
 
