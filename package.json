@@ -38,8 +38,9 @@
 
         ],
 
-        "linux": {
-            "target": ["AppImage", "zip"]
+        "win": {
+
+            "target": "nsis"
         }
 
     },
